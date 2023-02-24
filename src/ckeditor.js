@@ -47,11 +47,9 @@ import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperti
 import TableColumnResize from '@ckeditor/ckeditor5-table/src/tablecolumnresize.js';
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
-import TextPartLanguage from '@ckeditor/ckeditor5-language/src/textpartlanguage.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
-import WProofreader from '@webspellchecker/wproofreader-ckeditor5/src/wproofreader.js';
 
 class Editor extends ClassicEditor {}
 
@@ -101,11 +99,9 @@ Editor.builtinPlugins = [
 	TableColumnResize,
 	TableProperties,
 	TableToolbar,
-	TextPartLanguage,
 	TextTransformation,
 	TodoList,
-	Underline,
-	WProofreader
+	Underline
 ];
 
 // Editor configuration.
@@ -132,8 +128,6 @@ Editor.defaultConfig = {
 			'superscript',
 			'subscript',
 			'code',
-			'|',
-			'textPartLanguage',
 			'|',
 			'alignment',
 			'outdent',
