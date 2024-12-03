@@ -5,6 +5,8 @@
 import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor.js';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
+import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
+import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
@@ -22,6 +24,8 @@ import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
+import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
@@ -37,6 +41,7 @@ import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat.js';
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
 import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough.js';
 import Style from '@ckeditor/ckeditor5-style/src/style.js';
 import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript.js';
@@ -47,7 +52,7 @@ import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperti
 import TableColumnResize from '@ckeditor/ckeditor5-table/src/tablecolumnresize.js';
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
-import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
+import Title from '@ckeditor/ckeditor5-heading/src/title.js';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 
@@ -57,6 +62,8 @@ class Editor extends ClassicEditor {}
 Editor.builtinPlugins = [
 	Alignment,
 	Autoformat,
+	AutoImage,
+	AutoLink,
 	BlockQuote,
 	Bold,
 	CloudServices,
@@ -74,6 +81,8 @@ Editor.builtinPlugins = [
 	HorizontalLine,
 	Image,
 	ImageCaption,
+	ImageInsert,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
@@ -89,6 +98,7 @@ Editor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	RemoveFormat,
+	SimpleUploadAdapter,
 	Strikethrough,
 	Style,
 	Subscript,
@@ -99,7 +109,7 @@ Editor.builtinPlugins = [
 	TableColumnResize,
 	TableProperties,
 	TableToolbar,
-	TextTransformation,
+	Title,
 	TodoList,
 	Underline
 ];
@@ -108,49 +118,49 @@ Editor.builtinPlugins = [
 Editor.defaultConfig = {
 	toolbar: {
 		items: [
-			'undo',
-			'redo',
-			'|',
-			'findAndReplace',
-			'removeFormat',
+			'heading',
+			'style',
 			'|',
 			'bold',
 			'italic',
+			'link',
 			'underline',
 			'strikethrough',
-			'link',
+			'removeFormat',
 			'|',
 			'fontSize',
 			'fontColor',
 			'fontFamily',
 			'fontBackgroundColor',
 			'highlight',
-			'superscript',
+			'|',
 			'subscript',
-			'code',
+			'superscript',
+			'MathType',
+			'ChemType',
 			'|',
 			'alignment',
-			'outdent',
 			'indent',
-			'-',
-			'pageBreak',
-			'horizontalLine',
+			'outdent',
 			'|',
 			'bulletedList',
 			'numberedList',
 			'todoList',
 			'|',
-			'imageUpload',
-			'insertTable',
-			'mediaEmbed',
+			'horizontalLine',
+			'pageBreak',
+			'|',
 			'blockQuote',
+			'imageInsert',
+			'mediaEmbed',
+			'insertTable',
+			'|',
+			'code',
 			'codeBlock',
 			'|',
-			'MathType',
-			'ChemType',
-			'|',
-			'heading',
-			'style'
+			'findAndReplace',
+			'undo',
+			'redo'
 		],
 		shouldNotGroupWhenFull: true
 	},
